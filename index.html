@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Notes</title>
+
+    <style>
+        body{
+            background-color: rgb(28, 27, 27);
+            padding: 5%;
+            padding-top:50px; 
+        }
+        .titleName{
+            font-weight: bold;
+            color: rgb(0, 170, 255);
+            text-shadow: 3px 3px 1px rgb(0, 0, 0);
+        }
+        #start-btn{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            margin-left: 2px;
+            padding: 6px;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            cursor:pointer;
+            transition: 0.4s;
+        }
+        #start-btn:hover{
+            box-shadow: 4px 4px 10px rgb(0, 102, 255)inset, -4px -4px 10px rgb(0, 102, 255)inset;
+            transition:  0.4s;
+        }
+
+        #stop-btn{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            padding: 6px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition:  0.4s;
+        }
+        #stop-btn:hover{
+            box-shadow: 3px 3px 10px rgb(255, 0, 17)inset, -3px -3px 10px rgb(255, 0, 17)inset;
+            transition:  0.4s;
+        }
+
+        #del{
+            transform: translateY(-6%);
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            padding: 6px;
+            border-radius: 5px;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition:  0.4s;
+        }
+        #del:hover{
+            box-shadow: 3px 3px 10px rgb(251, 64, 64)inset, -3px -3px 10px rgb(251, 64, 64)inset;
+            transition:  0.4s;
+        }
+         img{
+            width: 40px;
+            background-color: none;
+            transform: translate(-40%, -5%);
+            cursor:pointer;
+         }
+
+         .actionBtn{
+            position: fixed;
+            background-color: rgb(49, 48, 48);
+            padding: 5px;
+            padding-left: 4px;
+            padding-right: 6px;
+            width: 212px;
+            height: 50px;
+            border-radius: 10px;
+            border: 2px solid rgb(95, 94, 94);
+            margin-bottom: -100px;
+            z-index: 10;
+            box-shadow: 5px 5px 25px black;
+            transform: translateY(-120%);
+         }
+
+         .navBar{
+            min-width: 100px;
+            height: 50px;
+            background-color: black;
+            transform: translateY(-60%);
+            padding-top: 6px;
+            padding-bottom: 6px;
+            padding-left: 20px;
+            margin-bottom: 56px;
+            border-radius: 10px;
+         }
+
+         .links{
+            margin-top: 10px;
+            text-align: right;
+            margin-right: 20px;
+         }
+
+         .links a{
+            text-decoration: none;
+         }
+
+         .note {
+            border: 1px solid black;
+            border-left: 2px solid rgb(73, 73, 73);
+            padding: 10px;
+            border-top: 7px solid rgb(0, 213, 255);
+            color: rgb(236, 235, 235);
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background-color: rgb(25, 25, 25);
+            transition: 0.2s;
+        }
+        .note:hover{
+            background-color: rgb(50, 50, 50);
+            border-top: 7px solid rgb(39, 39, 39);
+            /* border: 1px solid gray; */
+            box-shadow: 4px 4px 15px rgb(0, 0, 0);
+            transition: 0.1s;
+
+        }
+        .footer{
+            padding: 15px;
+            color: whitesmoke;
+            margin-top: 15px;
+            min-width: 100px;
+            height: 30px;
+            background-color: black;
+            border-radius: 10px;
+            margin-bottom: -20px;
+            border: 1px solid rgb(62, 61, 61);
+
+        }
+
+        a{
+            color: white;
+        }
+
+        #download-btn{
+            background: none;
+            border: none;
+            font-size: 33px;
+            cursor:pointer;
+            background-color: black;
+            border-radius: 6px;
+            padding-top: 3px;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-bottom: 4px;
+            transition:  0.4s;
+        }
+
+        #download-btn:hover{
+            box-shadow: 3px 3px 10px rgb(13, 255, 0)inset, -3px -3px 10px rgb(13, 255, 0)inset;
+            transition:  0.4s;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px; /* Optional: Add some margin between the links */
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="navBar">
+        <!-- <code> <h2 class="titleName" >VoiceNotes</h2> </code> -->
+        <a href="home.html"> <img src="not.png" alt=""> </a>
+        
+        <div class="links">
+            <!-- <code> <a href="{{ url_for('home') }}">_Home</a> </code>
+            <code> <a href="{{url_for('index')}}">_AI Notes</a> </code>
+            <code> <a href="{{url_for('board')}}">Board</a> </code> -->
+            <!-- <code> <a>_About</a> </code>
+            <code> <a>_ContactMe</a> </code> -->
+        </div>
+        <code><p style="color: white; transform: translateY(-210%); text-align: center; font-size: 30px;">Speech_Notes</p></code>
+
+        
+    </div>
+
+    <div class="actionBtn">
+        <button id="start-btn"> <img src="record.png" alt="record" style="width: 20px; transform: translate(-5%, 5%)"> </button>
+        <button id="stop-btn"> <img src="stopRecord.png" alt="record" style="width: 25px; transform: translate(-5%, 5%)"> </button>
+        <button id="del" style="margin-bottom: 10px;"> <img src="binBox.png" alt="record" style="width: 27px; transform: translate(0%,6%)"> </button>
+        <button id="download-btn" style="transform: translate(334%, -125%)"> 📥 </button>
+    </div>
+
+    
+
+<div style="padding: 10px; border: 1.8px solid rgb(95, 95, 95); border-radius: 10px; background-color: rgb(37, 37, 37);">
+   <code> <div id="output-container"></div> </code>
+
+</div>
+
+
+
+    <div class="footer">
+        <div>
+            <code> <p class="social-links" style="text-align: right; margin-top: -5px; margin-bottom: 25px;">
+               <a href="https://twitter.com/HarshKumarPahal"> Twitter <br><br></a>
+                <a href="https://www.youtube.com/channel/UCM7A9obgmpmmRIDdKiiL77g"> YouTube <br><br></a>
+                <a href="https://www.linkedin.com/in/harsh-kumar-ba5508257/"> LinkedIn <br><br></a>
+            </p> </code>
+        </div>
+       
+        
+        <div>
+            <code> <p style="text-align: center; margin-top: -30px;">
+                ©[2024] Speech_Notes. All rights reserved.
+
+            </p> </code>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function() {
+            // Get the text content from the output-container
+            const notesText = document.getElementById('output-container').innerText;
+    
+            // Create a Blob with the text content
+            const blob = new Blob([notesText], { type: 'text/plain' });
+    
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+    
+            // Set the anchor's href attribute to the Blob's URL
+            a.href = url;
+    
+            // Set the file name
+            a.download = 'Speak_Notes.txt';
+    
+            // Append the anchor to the body and trigger the click event
+            document.body.appendChild(a);
+            a.click();
+    
+            // Remove the anchor from the body
+            document.body.removeChild(a);
+    
+            // Revoke the Blob URL
+            URL.revokeObjectURL(url);
+        });
+    </script>
+    
+
+<script type="module" src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
+<script type="module" defer src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js"></script>
+<script type="module" src="notes.js"></script>
+
+
+
+</body>
+</html>
+
